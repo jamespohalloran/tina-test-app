@@ -19,7 +19,9 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   });
-
+  if(!data){
+    return <div>loading...</div>
+  }
   return (
     <Layout>
       <code>
