@@ -18,7 +18,15 @@ const App = ({ Component, pageProps }) => {
       <TinaEditProvider
         showEditButton={true}
         editMode={
-          <TinaCMS apiURL={apiURL}>
+          <TinaCMS apiURL={apiURL} documentCreatorCallback={{
+            /**
+             * After a new document is created, redirect to its location
+             */
+            onNewDocument: ({ collection: { slug }, breadcrumbs }) => {
+              const relativeUrl = `/${slug}/${breadcrumbs.join("/")}`;
+              return (window.location.href = relativeUrl);
+            },
+          }}>
             <Component {...pageProps} />
           </TinaCMS>
         }
