@@ -17,7 +17,7 @@ export default function Home(props) {
   const { data } = useTina({
     query,
     variables: props.variables,
-    data: props.data,
+    data: props?.data,
   });
   if(!data){
     return <div>loading...</div>
