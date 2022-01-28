@@ -13,6 +13,8 @@ const query = `query getPost($relativePath: String!) {
 `;
 
 export default function Home(props) {
+  
+  return <div>Dummy page</div>
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query,
