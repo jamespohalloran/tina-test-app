@@ -19,8 +19,10 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   });
-  if(!data){
-    return <div>loading...</div>
+
+  return <div>{JSON.stringify(data)}</div>;
+  if (!data) {
+    return <div>loading...</div>;
   }
   return (
     <Layout>
@@ -58,7 +60,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking'
+    fallback: "blocking",
   };
 };
 export const getStaticProps = async (ctx) => {
