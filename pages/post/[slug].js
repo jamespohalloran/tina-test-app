@@ -19,7 +19,7 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   });
-  if (!data.loading) {
+  if (!data || Object.keys(obj).length === 0) {
     return <div>loading...</div>;
   }
   return (
