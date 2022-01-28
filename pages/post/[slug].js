@@ -19,7 +19,7 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   });
-  if (!data) {
+  if (!data.loading) {
     return <div>loading...</div>;
   }
   return (
@@ -65,7 +65,7 @@ export const getStaticProps = async (ctx) => {
   const variables = {
     relativePath: ctx.params.slug + ".md",
   };
-  let data = undefined;
+  let data = {};
   try {
     data = await staticRequest({
       query,
